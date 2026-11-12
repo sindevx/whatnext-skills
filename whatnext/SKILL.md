@@ -17,6 +17,21 @@ description: Skill map. Tells which skill to use for what you want to do now. Us
 4. No match: say so in one line, show the stage names, ask the user to pick one.
 5. Reply language follows the user. Default Thai. Skill names stay exact.
 6. Never run the skill. Only suggest it. The user decides.
+7. A skill name in the table that is not in this session's skill list: still show the row, add "(not installed)". Do not hide it.
+
+## Example
+
+User: `/whatnext bug`
+
+Answer:
+| Situation | Skill |
+|---|---|
+| บั๊กยาก, ช้า, throw หรือ fail | `diagnosing-bugs` |
+| บั๊ก/เทสต์พัง ต้องหา root cause | `superpowers:systematic-debugging` |
+
+- **Best pick**: `diagnosing-bugs`
+- **Example**: `/diagnosing-bugs login throws 500 after token refresh`
+- **Then**: `tdd` (write the failing test) → `pr`
 
 ## Map
 
@@ -24,6 +39,7 @@ description: Skill map. Tells which skill to use for what you want to do now. Us
 | Situation | Skill | Keywords |
 |---|---|---|
 | ไม่รู้จะใช้ตัวไหน | `ask-matt` | help, unsure, lost |
+| อยากหา skill ใหม่มาติดตั้ง | `find-skills` | find skill, install, extend |
 | ตั้งค่า repo ครั้งแรก (issue tracker, label, โครง docs) | `setup-matt-pocock-skills` | setup, init, first time |
 | ยังไม่เข้าใจที่ AI พูด | `wait-what` | confused, explain again, ไม่เข้าใจ |
 | อยากเรียนแนวคิดใหม่ในโปรเจกต์ | `teach` | learn, teach, เรียน |
@@ -52,6 +68,10 @@ description: Skill map. Tells which skill to use for what you want to do now. Us
 | ทำ 1 PR หรือทีละ step พร้อมวน review | `implement` + `engineering-rules` | PR, next step |
 | ทำทีละส่วน build-test-commit | `agent-skills:build` | incremental, build |
 | ทำความสะอาดโค้ด ไม่เปลี่ยน behavior | `refactor-simple` / `simplify` | refactor, clean, simplify |
+| อยากได้ code น้อยที่สุด ไม่ทำเกิน | `ponytail:ponytail` | minimal, lazy, smallest diff |
+| กัน AI เขียนเกิน / แก้กว้างเกิน | `karpathy-guidelines` | surgical, overcomplicate |
+| ถามโค้ดว่าใครเรียกใคร / โครงสร้าง | `codebase-memory` | callers, call chain, dead code |
+| เขียน prompt ให้ AI ตัวอื่น | `prompt-master` | prompt, cursor, midjourney |
 | ตั้งชื่อ method หรือ variable | `naming` | name, rename |
 | ใช้ git worktree แยกงาน | `superpowers:using-git-worktrees` | worktree, isolate |
 
@@ -88,6 +108,13 @@ description: Skill map. Tells which skill to use for what you want to do now. Us
 | จบ session อยาก retro | `retro` | retro, lessons |
 | เอกสารส่งมอบระบบ | `system-handover-guide` | handover |
 | ทำ knowledge graph ของโค้ด | `graphify` | graph, codebase map |
+
+## Needs
+
+This file is only a map. The skills it points to come from other places:
+`superpowers`, `agent-skills` (addy), `mattpocock-skills`, `ponytail`, `diagram-design`,
+plus own skills: `task-note`, `dev-journal`, `git-daily`, `redmine-report`, `refactor-simple`,
+`naming`, `eli5`, `system-handover-guide`, `graphify`. Missing one is fine (rule 7).
 
 ## Keep this file true
 Skill names change when plugins update. If a name above is not in the skills list of this session, say so in one line and use the closest match. Edit this one file to add or remove a skill.
