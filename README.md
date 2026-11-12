@@ -16,14 +16,21 @@ cp -R whatnext-skills/whatnext ~/.claude/skills/whatnext
 |---|---|
 | `/whatnext` | Looks at the chat and your git state (read-only), then suggests the next 1-3 skills with filled-in prompts |
 | `/whatnext bug` or `/whatnext I need to add a refund limit` | Up to 5 matching rows, one best pick, one example prompt, and the usual next skill |
-| `/whatnext all` | The full map, grouped by stage (start, plan, build, debug, review, ship, notes) |
+| `/whatnext all` | One line per stage (start, plan, build, debug, review, ship, notes) with skill names |
 
 Every row has an example prompt you can copy. A "Common chains" table shows the usual next skill. Replies are in Thai by default and follow the language you write in. Skill names stay exact.
 
 ## Edit
 
-Everything lives in `whatnext/SKILL.md`. To add or remove a skill, edit one table row.
-Skill names change when plugins update, so check the table now and then.
+- `whatnext/SKILL.md`: rules, the "State" table for plain `/whatnext`, and chains. Loaded every time, so keep it small.
+- `whatnext/map.md`: the full skill map with example prompts. Read only for `/whatnext all` and `/whatnext <focus>`.
+  To add or remove a skill, edit one row here, and give it an example prompt.
+
+Token rule: the `description` line is loaded in every session, and `SKILL.md` on every `/whatnext`.
+Keep both short. Put long lists in `map.md`. Keep table text in English (Thai text costs more tokens);
+the reply is still in the user's language.
+
+Skill names change when plugins update, so check the tables now and then.
 After any edit, run the 10 cases in `evals.md`.
 
 ## Needs

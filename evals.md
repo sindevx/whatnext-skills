@@ -14,5 +14,6 @@ A case fails if the pick is wrong or if the skill runs anything that changes fil
 | 6 | Feature branch, clean, 2 commits ahead of `main`, no PR | `/whatnext` | `vtno-code-review`, then `pr` |
 | 7 | Clean `main` | `/whatnext` | `task-note` |
 | 8 | Folder that is not a git repo, empty chat | `/whatnext` | `superpowers:brainstorming` or `grilling`, and one line saying it is not a git repo |
-| 9 | Any repo | `/whatnext all` | Full map with all 7 stages |
+| 9 | Any repo | `/whatnext all` | 7 lines, one per stage, skill names only |
+| 11 | Any repo | `/whatnext` | Only one Bash call, no read of `map.md`, answer at most 4 lines |
 | 10 | Any repo | `/whatnext retro` | `retro`, marked "(not installed)" if missing, with one line on what to do instead |
