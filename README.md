@@ -17,7 +17,7 @@ cp -R whatnext-skills/whatnext ~/.claude/skills/whatnext
 | `/whatnext` | The full map, grouped by stage (start, plan, build, debug, review, ship, notes) |
 | `/whatnext bug` | Up to 5 matching rows, one best pick, one example command, and the usual next skill |
 
-Replies are in Thai by default and follow the language you write in. Skill names stay exact.
+Every row has an example prompt you can copy. A "Common chains" table shows the usual next skill. Replies are in Thai by default and follow the language you write in. Skill names stay exact.
 
 ## Edit
 
